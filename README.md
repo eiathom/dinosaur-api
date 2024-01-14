@@ -60,4 +60,16 @@ deactivate
 
 # Usage
 
+There is a `main` module to showcase the API being presented here.
+
+Each current API can be showcased against test data:
+
+```bash
+# showcase the `getLargestDinosaurSpeciesByNameByLengthInMetres` API
+CSV_DATA_FILE_LOCATION="./data/largest.csv" python main.py largest
+
+# showcase the `getDinosaurNamesAnagramsList` API
+CSV_DATA_FILE_LOCATION="./data/anagrams.csv" python main.py anagrams
+
+```
 
