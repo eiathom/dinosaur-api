@@ -2,6 +2,7 @@ import re
 
 REGULAR_EXPRESSION_TO_MATCH_ON_DIGIT_TYPES = r"[-+]?\d*\.?\d+|\d+"
 
+
 def get_float_value_from_string_value(value: str) -> float:
     """
     Attempt to return a float value from a string value.
