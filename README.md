@@ -4,7 +4,7 @@ Interface to dinosaur data.
 
 # API
 
-## `getLargestDinosaurSpeciesByNameByLengthInMetres() -> str`
+## `getLargestDinosaurSpeciesByNameByLengthInMetres() -> List[str]`
 
 Returns the largest species - by name - by length (measured in metres).
 
@@ -13,6 +13,9 @@ Returns the largest species - by name - by length (measured in metres).
 * if data does not contain a `length` property value, 1.0m is used as a default
 value
 * if data does not contain a `species` property value, that data is ignored
+* if there are multiple matches in terms of `length`, then all matches are
+returned
+* an empty list is returned if no data can be found
 
 ## `getDinosaurNamesAnagramsList() -> List[List[str]]`
 
@@ -38,6 +41,9 @@ pyenv local $(head -1 .python-version)
 # create a local environment
 python -m venv venv
 
+# activate local environment
+source venv/bin/activate
+
 # install dev dependencies
 python -m pip install -r requirements/development.txt
 
@@ -46,6 +52,9 @@ pytest -sv app/test/unit
 
 # run integration tests
 pytest -sv app/test/integration
+
+# deactivate local environment
+deactivate
 
 ```
 
