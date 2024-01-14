@@ -1,11 +1,25 @@
-def test_dinosaur_length_parser_returns_none_if_non_numerical_value_is_passed():
-    pass
+from app.src.util.parse_utils import get_float_value_from_string_value
 
-def test_dinosaur_length_parser_returns_float_if_integer_value_as_string_is_passed():
-    pass
+import pytest
 
-def test_dinosaur_length_parser_returns_float_if_float_value_as_string_is_passed():
-    pass
+test_data = [
+    ("", None),
+    (" ", None),
+    ("a", None),
+    ("-", None),
+    ("0", 0.0),
+    ("00101", 101.0),
+    ("-00101", 101.0),
+    ("0.0", 0.0),
+    ("00101.0", 101.0),
+    ("-00101.0", -101.0),
+    ("a1", 1.0),
+    ("1a", 1.0),
+    ("0.1a", 0.1),
+    ("-a1", 1.0),
+    ("-1.23a", -1.23)
+]
 
-def test_dinosaur_length_parser_returns_float_if_valid_partial_numerical_value_as_string_is_passed():
-    pass
+@pytest.mark.parametrize("input_value,expected_value", test_data)
+def test_get_float_value_from_string_value_returns_expected_value_given_input_value(input_value, expected_value):
+    assert get_float_value_from_string_value(input_value) == expected_value
