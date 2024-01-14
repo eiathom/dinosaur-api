@@ -21,6 +21,7 @@ def get_dinosaur_names_according_to_maximum_length_of_dinosaur(
             )
     return []
 
+
 def get_dinosaur_names_anagrams(
     data_frame: DataFrame,
     name_column_name: str,
