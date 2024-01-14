@@ -3,13 +3,14 @@ from app.src.util.parse_utils import get_float_value_from_string_value
 import pytest
 
 test_data = [
+    (None, None),
     ("", None),
     (" ", None),
     ("a", None),
     ("-", None),
     ("0", 0.0),
     ("00101", 101.0),
-    ("-00101", 101.0),
+    ("-00101", -101.0),
     ("0.0", 0.0),
     ("00101.0", 101.0),
     ("-00101.0", -101.0),
