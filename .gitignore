@@ -1,0 +1,7 @@
+# python
+venv
+.cache
+.mypy_cache
+.pytest_cache
+*.pyc
+
