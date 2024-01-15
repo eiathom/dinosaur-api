@@ -13,13 +13,20 @@ CSV_DATA_FILE_LOCATION = os.environ.get(
 )
 
 
+def get_float_value_from_length(value: str) -> float:
+    processed_value = get_float_value_from_string_value(value)
+    if processed_value is None:
+        return 1.0
+    return processed_value
+
+
 def get_largest_dinosaur_species_by_name_by_length_in_metres() -> List[str]:
     data_frame = get_data_from_csv(
         CSV_DATA_FILE_LOCATION,
         {
             "columns": ["name", "length"],
             "convert": {
-                "length": get_float_value_from_string_value,
+                "length": get_float_value_from_length,
             },
         },
     )
